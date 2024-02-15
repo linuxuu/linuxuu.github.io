@@ -12,12 +12,8 @@ h1, h2 {
   margin: 0;
 }
 
-#login, #postForm, #postList {
+#postForm, #postList {
   margin-bottom: 20px;
-}
-
-.hidden {
-  display: none;
 }
 
 #postListItems {
