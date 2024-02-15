@@ -1,0 +1,30 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header, main {
+  padding: 20px;
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+#login, #postForm, #postList {
+  margin-bottom: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+#postListItems {
+  list-style-type: none;
+  padding: 0;
+}
+
+#postListItems li {
+  margin-bottom: 10px;
+}
