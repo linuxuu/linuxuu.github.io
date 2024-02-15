@@ -1,1 +1,43 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>ZZ集团官网</title> </head> <body> <h1>Welcome to ZZ Group</h1> <div id="register"> <h2>Register</h2> <form action="register.php" method="post"> <label for="username">Username:</label> <input type="text" id="username" name="username"> <label for="password">Password:</label> <input type="password" id="password" name="password"> <input type="submit" value="Register"> </form> </div> <div id="login"> <h2>Login</h2> <form action="login.php" method="post"> <label for="username">Username:</label> <input type="text" id="username" name="username"> <label for="password">Password:</label> <input type="password" id="password" name="password"> <input type="submit" value="Login"> </form> </div> <div id="forum"> <h2>Forum</h2> <ul> <li>Thread 1</li> <li>Thread 2</li> <li>Thread 3</li> <li>Thread 4</li> </ul> </div> <div id="post"> <h2>Post Thread</h2> <form action="post.php" method="post"> <label for="title">Title:</label> <input type="text" id="title" name="title"> <label for="content">Content:</label> <textarea id="content" name="content" rows="4"></textarea> <input type="submit" value="Post"> </form> </div> <script> document.getElementById("login").addEventListener("submit", function(event) { event.preventDefault(); var username = document.getElementById("username").value; var password = document.getElementById("password").value; if (username === "zz54188" && password === "zz666") { alert("Welcome, Advanced User!"); } else { alert("Welcome, Slave User!"); } }); </script> </body> </html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ZZ集团官网</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome to ZZ Group</h1>
+  </header>
+
+  <main>
+    <div id="login">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+        <button type="submit">Log in</button>
+      </form>
+    </div>
+
+    <div id="postForm" class="hidden">
+      <h2>Create Post</h2>
+      <form id="createPostForm">
+        <label for="postTitle">Title:</label>
+        <input type="text" id="postTitle">
+        <label for="postContent">Content:</label>
+        <textarea id="postContent"></textarea>
+        <button type="submit">Create</button>
+      </form>
+    </div>
+
+    <div id="postList" class="hidden">
+      <h2>Posts</h2>
+      <ul id="postListItems"></ul>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
