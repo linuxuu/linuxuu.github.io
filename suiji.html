@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>随机点名器</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        #nameDisplay {
+            font-size: 3em;
+            margin: 20px;
+            color: #333;
+            min-height: 60px;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 1.2em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .running {
+            animation: blink 0.1s infinite;
+            color: #ff4444;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>随机点名器</h1>
+        <div id="nameDisplay">准备好！</div>
+        <button onclick="startRandom()" id="startBtn">开始点名</button>
+    </div>
+
+    <script>
+        // 学生名单（可以自行修改添加）
+        const names = [
+            "周佳龙", "温雨轩", "张铭航",
+            "袁昊宇", "杨钊", "周光泽",
+            "杨天予", "常斯茗", "孙誉为"，
+            "马灿辉"，"闫嘉瑞"，"刘紫阔"，
+            "王玮琪"，"宋其俊"，"丁晨俊"
+        ];
+
+        let isRunning = false;
+        let intervalId = null;
+
+        function startRandom() {
+            const nameDisplay = document.getElementById("nameDisplay");
+            const startBtn = document.getElementById("startBtn");
+
+            if (!isRunning) {
+                isRunning = true;
+                startBtn.textContent = "停止";
+                nameDisplay.classList.add("running");
+
+                intervalId = setInterval(() => {
+                    const randomIndex = Math.floor(Math.random() * names.length);
+                    nameDisplay.textContent = names[randomIndex];
+                }, 50);
+            } else {
+                isRunning = false;
+                startBtn.textContent = "开始点名";
+                nameDisplay.classList.remove("running");
+                clearInterval(intervalId);
+            }
+        }
+    </script>
+</body>
+</html>
